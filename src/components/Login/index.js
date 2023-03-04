@@ -36,8 +36,10 @@ function Login() {
   };
 
   useEffect(() => {
-    if (isAutorised) {
-      navigate("/profile", { replace: true });
+    const localState = JSON.parse(localStorage.getItem("reduxState"));
+
+    if (localState.isAutorised) {
+      navigate("/profile");
     }
   }, [isAutorised]);
 
@@ -47,9 +49,9 @@ function Login() {
       dispatch(login({ username, password }));
     } else {
       if (!username || !password) {
-        setAlertMessage("All fields should be filled");
+        setAlertMessage(t("login.fillFields"));
       } else {
-        setAlertMessage("Username or password isn't correct");
+        setAlertMessage(t("login.incorrectFields"));
       }
       setOpen(true);
     }
