@@ -15,7 +15,7 @@ import { loadState, saveState } from "./localStorage";
 
 import reportWebVitals from "./reportWebVitals";
 
-import { HashRouter } from "react-router-dom";
+import { HashRouter, BrowserRouter } from "react-router-dom";
 
 const persistedState = loadState();
 const store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
@@ -27,11 +27,11 @@ store.subscribe(() => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <Provider store={store}>
         <App />
       </Provider>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

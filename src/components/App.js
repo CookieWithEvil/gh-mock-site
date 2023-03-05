@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, Link, HashRouter, Switch } from "react-router-dom";
+import { Routes, Route, Link, BrowserRouter, Switch } from "react-router-dom";
 import { Box, Button, ButtonGroup } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
@@ -69,12 +69,10 @@ function App() {
           {/* <HashRouter> */}
           <Routes>
             <Route path="/">
-              <Switch>
-                <Route index element={<Main />} />
-                <Route path="news" element={<News />} />
-                <Route path="profile" element={<Profile />} />
-                <Route path="login" element={<Login />} />
-              </Switch>
+              <Route index element={<Main />} />
+              <Route path="news" element={<News />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="login" element={<Login />} />
             </Route>
           </Routes>
           {/* </HashRouter> */}
